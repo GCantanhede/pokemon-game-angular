@@ -11,6 +11,8 @@ import { PokemonService } from '../../services/pokemon.service';
 })
 export class GameComponent implements OnInit {
 
+  user: any;
+
   loaded: boolean = false;
   private _selected: boolean = false;
   private _pokemonSelected: string = '';
@@ -20,7 +22,7 @@ export class GameComponent implements OnInit {
   get score(): number {
     return this.playerService.score;
   }
-  
+
   get hearts(): Array<any> {
     return Array(this.playerService.lifes);
   }
@@ -49,10 +51,11 @@ export class GameComponent implements OnInit {
   constructor(
     private playerService: PlayerService,
     private pokemonService: PokemonService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.playerService.resetGame();
+    this.user = (localStorage.getItem("actualUser"))
     this.newGame();
   }
 
@@ -68,7 +71,7 @@ export class GameComponent implements OnInit {
       this.playerService.decreaseLifes();
       console.log('incorrect');
     }
-    
+
   }
 
   // this function es execute every time that user click in next game
@@ -89,4 +92,6 @@ export class GameComponent implements OnInit {
     }
   }
 
+  protected readonly sessionStorage = sessionStorage;
+  protected readonly localStorage = localStorage;
 }

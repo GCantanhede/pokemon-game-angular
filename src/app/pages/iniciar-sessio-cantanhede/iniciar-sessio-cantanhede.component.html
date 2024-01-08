@@ -1,0 +1,13 @@
+
+<div fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutGap="30px">
+
+<p>JUGADOR:</p><input type="text" id="userName">
+
+<button mat-raised-button color="primary" routerLink="/home" class="breath" (click)="saveUser()">
+  JUGAR
+</button>
+</div>
+<router-outlet></router-outlet>
