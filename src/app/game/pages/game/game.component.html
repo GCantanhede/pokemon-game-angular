@@ -15,8 +15,11 @@
             <h2>Who is that Pokemon?...</h2>
         </div>
 
-        <div>
-            <app-pokemon-view [url]="urlImage"
+        <div id="imagens">
+            <app-pokemon-view
+              (mouseover)="small()"
+              (mouseout)="normal()"
+                              [url]="urlImage"
                               [show]="selected"
                               [width]="275"
                               [height]="200">

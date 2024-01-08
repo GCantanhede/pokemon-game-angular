@@ -58,6 +58,11 @@ export class GameComponent implements OnInit {
     this.user = (localStorage.getItem("actualUser"))
     this.newGame();
   }
+  small(){
+  }
+  normal(){
+
+  }
 
   onSelect(pokemonName: string) {
     this._pokemonSelected = pokemonName;
@@ -94,4 +99,5 @@ export class GameComponent implements OnInit {
 
   protected readonly sessionStorage = sessionStorage;
   protected readonly localStorage = localStorage;
+  protected readonly innerWidth = innerWidth;
 }
