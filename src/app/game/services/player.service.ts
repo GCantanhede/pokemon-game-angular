@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import {stringify} from "@angular/compiler/src/util";
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class PlayerService {
     this._score = 0;
     this._lifes = 5;
   }
-  
+
   increasePoints() {
     this._score += 10;
   }
@@ -42,7 +43,9 @@ export class PlayerService {
   decreaseLifes() {
     this._lifes -= 1;
     if (this._lifes <= 0) {
-      
+
+      sessionStorage.setItem("unsavedScore",String(this._score))
+
       if (this._score > this._highScore) this.newHighScore()
 
       this._router.navigate(['/game/gameover']);

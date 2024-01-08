@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoresComponent implements OnInit {
 
+  actualScores: any
+  actualUsers: any
+
   constructor() { }
 
   ngOnInit(): void {
+    const aScores = localStorage.getItem('sscores');
+    this.actualScores = aScores ? JSON.parse(aScores) : [];
+    const aUsers = localStorage.getItem('uusers');
+    this.actualUsers = aUsers ? JSON.parse(aUsers) : [];
   }
 
 }
